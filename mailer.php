@@ -29,10 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
    // Send the email
    if (mail($to, $subject, $message, $headers)) {
-       echo 'Mail sent successfully.';
+      //  echo 'Mail sent successfully.';
+      header('Location: index.php?status=success');
    } else {
-       echo 'Mail sending failed.';
+      //  echo 'Mail sending failed.';
+      header('Location: index.php?status=error');
    }
 } else {
-   echo 'Invalid request.';
+   // echo 'Invalid request.';
+   header('Location: index.php');
 }
